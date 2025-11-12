@@ -1,0 +1,9 @@
+{
+  "translation": {
+    "title": "안녕하세요 관리자님",
+    "adminId": "관리자 ID",
+    "password": "관리자 비밀번호",
+    "rememberMe": "기억하기",
+    "signIn": "로그인"
+  }
+}

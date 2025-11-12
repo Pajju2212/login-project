@@ -1,0 +1,9 @@
+{
+  "translation": {
+    "title": "Hi Administrator",
+    "adminId": "Admin ID",
+    "password": "Admin Password",
+    "rememberMe": "Remember me",
+    "signIn": "Sign In"
+  }
+}
