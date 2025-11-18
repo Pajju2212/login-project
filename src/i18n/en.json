@@ -2,8 +2,18 @@
   "translation": {
     "title": "Hi Administrator",
     "adminId": "Admin ID",
-    "password": "Admin Password",
+    "password": "Password",
     "rememberMe": "Remember me",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "dashboard": "Dashboard",
+    "adminManagement": "Admin Management",
+    "paymentManagement": "Payment Management",
+    "settings": "Settings",
+    "totalRevenue": "Total Revenue",
+    "rewardsPoints": "Rewards Points",
+    "referrals": "Referrals",
+    "today": "Today",
+    "last7days": "Last 7 Days",
+    "monthly": "Monthly"
   }
 }

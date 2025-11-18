@@ -2,8 +2,18 @@
   "translation": {
     "title": "안녕하세요 관리자님",
     "adminId": "관리자 ID",
-    "password": "관리자 비밀번호",
+    "password": "비밀번호",
     "rememberMe": "기억하기",
-    "signIn": "로그인"
+    "signIn": "로그인",
+    "dashboard": "대시보드",
+    "adminManagement": "관리자 관리",
+    "paymentManagement": "결제 관리",
+    "settings": "설정",
+    "totalRevenue": "총 수익",
+    "rewardsPoints": "보상 포인트",
+    "referrals": "추천",
+    "today": "오늘",
+    "last7days": "지난 7일",
+    "monthly": "월간"
   }
 }

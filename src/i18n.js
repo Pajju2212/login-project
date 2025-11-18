@@ -1,22 +1,12 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-// 1. Import the JSON files as raw strings using the "?raw" suffix
-import translationsEnString from './i18n/en.json?raw';
-import translationsKrString from './i18n/kr.json?raw';
-
-// 2. Parse the text strings into JavaScript objects
-const translationsEn = JSON.parse(translationsEnString);
-const translationsKr = JSON.parse(translationsKrString);
+import translationsEn from './i18n/en.json';
+import translationsKr from './i18n/kr.json'; // Import Korean
 
 const resources = {
-  en: {
-    // 3. Now we can safely access the .translation key
-    translation: translationsEn.translation
-  },
-  kr: {
-    translation: translationsKr.translation
-  }
+  en: { translation: translationsEn.translation },
+  kr: { translation: translationsKr.translation } // Register 'kr'
 };
 
 i18n
@@ -25,9 +15,7 @@ i18n
     resources,
     lng: "en", 
     fallbackLng: "en",
-    interpolation: {
-      escapeValue: false 
-    }
+    interpolation: { escapeValue: false }
   });
 
-  export default i18n;
+export default i18n;
