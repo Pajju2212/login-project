@@ -43,8 +43,9 @@ body {
 /* Class added when sidebar is open */
 .sidebar-container.expanded {
   width: 240px;
-  align-items: flex-start; /* Align items left when expanded */
+  align-items: flex-mid; /* Align items left when expanded */
 }
+
 
 .sidebar-logo {
   margin-bottom: 30px;
@@ -146,7 +147,7 @@ body {
 
 .top-header {
   height: 70px;
-  background-color: #fff;
+  background-color: #8bddf3;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -310,13 +311,13 @@ body {
    ============================== */
 .lang-toggle-btn {
   border: 1px solid #ddd;
-  background: transparent;
+  background: #FFD700;
   padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  color: #555;
+  color: #000;
 }
 
 .lang-toggle-btn.active {
@@ -350,3 +351,44 @@ body {
   font-size: 14px;
 }
 .pay-pill b { color: #009ef7; }
+
+/* ==============================
+   DARK MODE STYLES
+   ============================== */
+.dashboard-layout.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dashboard-layout.dark .sidebar-container {
+  background-color: #1e1e1e;
+  border-right: 1px solid #333;
+}
+
+.dashboard-layout.dark .nav-item {
+  color: #cccccc;
+}
+
+.dashboard-layout.dark .nav-item.active {
+  color: #ffffff;
+}
+
+.dashboard-layout.dark .top-header {
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #333;
+}
+
+.dashboard-layout.dark .content-area {
+  background-color: #121212;
+}
+
+.dashboard-layout.dark .stat-card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dashboard-layout.dark .pay-pill {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #ffffff;
+}

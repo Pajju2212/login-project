@@ -1,16 +1,18 @@
 import React from 'react';
-import { 
-  FileText, 
-  Download, 
-  Mail, 
-  Phone, 
-  MoreHorizontal, 
-  Clock, 
+import { useTranslation } from 'react-i18next';
+import {
+  FileText,
+  Download,
+  Mail,
+  Phone,
+  MoreHorizontal,
+  Clock,
   CheckCircle,
   File
 } from 'lucide-react';
 
 const AdminTable = () => {
+  const { t } = useTranslation();
   const data = [
     {
       id: 1,
@@ -64,7 +66,7 @@ const AdminTable = () => {
       
       {/* Search Bar */}
       <div className="table-header-actions" style={{ justifyContent: 'flex-end' }}>
-        <input type="text" placeholder="Search Business Name or Registration Number" className="search-bar" />
+        <input type="text" placeholder={t("searchBusinessNameOrRegNo")} className="search-bar" />
         <button style={{ 
             marginLeft: '10px', background: '#0056b3', color: 'white', border: 'none', 
             width: '40px', borderRadius: '4px', cursor: 'pointer', fontSize: '18px' 

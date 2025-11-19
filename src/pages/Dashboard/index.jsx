@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, Button, Radio } from 'antd';
 import { PlusOutlined, FilterOutlined } from '@ant-design/icons';
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const [timeRange, setTimeRange] = useState('today');
 
   // Mock Data for different ranges
@@ -16,7 +18,7 @@ const Dashboard = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+      <h1 className="text-2xl font-bold mb-6">{t('dashboard')}</h1>
 
       {/* Top Stats Row */}
       <div className="grid grid-cols-4 gap-6 mb-6">
