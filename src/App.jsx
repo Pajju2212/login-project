@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Eye, EyeOff, Bell, Search, Plus, Menu } from "lucide-react";
 import Sidebar from "./components/Layout/Sidebar";
-import AdminTable from "./components/AdminTable";
+import Admin from "./pages/Admin"; 
 import Settings from "./pages/Settings";
 import "./index.css";
+import Login from "./pages/Login";
+
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -39,79 +41,22 @@ function App() {
     setLanguage(language === "en" ? "kr" : "en");
   };
 
-  // ---------------------------------------
-  // LOGIN PAGE
-  // ---------------------------------------
-  if (!isLoggedIn) {
-    return (
-      <div className="login-page">
-        <div className="login-banner">
-          <div className="circle-large"></div>
-          <div className="circle-yellow"></div>
-          <div className="banner-text">KyoSync</div>
-        </div>
-
-        <div className="login-container">
-          <div className="lang-badge-container">
-            <button className="lang-badge" onClick={toggleLanguage}>
-              {language.toUpperCase()}
-            </button>
-          </div>
-
-          <h1 className="login-title">{t("title")}</h1>
-
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder={t("adminId")}
-              className="login-input"
-              value={adminId}
-              onChange={(e) => setAdminId(e.target.value)}
-            />
-          </div>
-
-          <div className="input-group">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder={t("password")}
-              className="login-input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <div
-              className="password-toggle"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-            </div>
-          </div>
-
-          <div className="form-footer">
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <input type="checkbox" id="rem" style={{ cursor: "pointer" }} />
-              <label
-                htmlFor="rem"
-                style={{ fontSize: "14px", color: "#555", cursor: "pointer" }}
-              >
-                {t("rememberMe")}
-              </label>
-            </div>
-
-            <button className="signin-btn" onClick={() => {
-              if (adminId === 'Admin' && password === 'Password') {
-                setIsLoggedIn(true);
-                localStorage.setItem('isLoggedIn', 'true');
-              } else {
-                alert('Invalid admin ID or password');
-              }
-            }}>
-              {t("signIn")}
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+ // ---------------------------------------
+// LOGIN PAGE
+// ---------------------------------------
+if (!isLoggedIn) {
+  return (
+    <Login
+      onSuccess={() => {
+        setIsLoggedIn(true);
+        localStorage.setItem("isLoggedIn", "true");
+      }}
+      language={language}
+      toggleLanguage={toggleLanguage}
+      t={t}
+    />
+  );
+}
 
   // ---------------------------------------
   // DASHBOARD PAGE
@@ -121,10 +66,11 @@ function App() {
       
       {/* SIDEBAR */}
       <Sidebar
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
-        isOpen={isSidebarOpen}
-        toggleSidebar={toggleSidebar}
+      activeTab={activeTab}
+      onTabChange={setActiveTab}
+      isOpen={isSidebarOpen}
+      toggleSidebar={toggleSidebar}
+      t={t}   /* pass translator */
       />
 
       {/* MAIN CONTENT */}
@@ -203,7 +149,7 @@ function App() {
                 </div>
               </div>
 
-              <AdminTable />
+              <Admin/>
             </div>
           )}
 

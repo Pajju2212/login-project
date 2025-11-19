@@ -1,53 +1,54 @@
+// src/components/Layout/Sidebar.jsx
 import React from "react";
-import {
-  LayoutDashboard,
-  ShieldCheck,
-  Landmark,
-  Settings,
-  Menu
-} from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Grid, Shield, Landmark, Settings, Menu } from "lucide-react";
+import "./sidebar.css";
 
-const Sidebar = ({ activeTab, onTabChange, isOpen, toggleSidebar }) => {
-  const menuItems = [
-    { id: "dashboard", name: "Dashboard", icon: <LayoutDashboard size={22} /> },
-    { id: "admin", name: "Admin Mgmt", icon: <ShieldCheck size={22} /> },
-    { id: "payment", name: "Payments", icon: <Landmark size={22} /> },
-    { id: "settings", name: "Settings", icon: <Settings size={22} /> },
-  ];
+const navItems = [
+  { key: "dashboard", labelKey: "dashboard", Icon: Grid },
+  { key: "admin", labelKey: "adminManagement", Icon: Shield },
+  { key: "payment", labelKey: "paymentManagement", Icon: Landmark },
+  { key: "settings", labelKey: "settings", Icon: Settings }
+];
+
+export default function Sidebar({ isOpen, toggleSidebar, activeTab, onTabChange }) {
+  const { t } = useTranslation(); // <--- use i18n inside component
 
   return (
-    <div className={`sidebar-container ${isOpen ? "expanded" : ""}`}>
-      
-      {/* TOP AREA — Hamburger instead of Logo */}
+    <aside className={`kyos-sidebar ${isOpen ? "open" : "collapsed"}`} aria-expanded={isOpen}>
       <div className="sidebar-top">
-        <Menu
-          size={26}
-          className="sidebar-hamburger"
-          onClick={toggleSidebar}
-          style={{ cursor: "pointer" }}
-        />
+        <button className="hamburger" onClick={toggleSidebar} aria-label={t('menu') || 'Toggle menu'}>
+          <Menu size={20} />
+        </button>
       </div>
-      
-      <p></p>
-      <p></p>
-      <p></p>
 
-      {/* NAVIGATION MENU */}
-      <nav className="sidebar-nav">
-        {menuItems.map((item) => (
-          <div
-            key={item.id}
-            className={`nav-item ${activeTab === item.id ? "active" : ""}`}
-            onClick={() => onTabChange(item.id)}
-            title={isOpen ? "" : item.name}
-          >
-            <div className="icon-box">{item.icon}</div>
-            <span className="nav-label">{item.name}</span>
-          </div>
-        ))}
+      <nav className="sidebar-nav" role="navigation" aria-label={t('mainNavigation') || 'Main'}>
+        {navItems.map((item, idx) => {
+          const Active = activeTab === item.key;
+          const delay = `${idx * 60}ms`;
+          return (
+            <button
+              key={item.key}
+              className={`nav-item ${Active ? "active" : ""}`}
+              onClick={() => onTabChange(item.key)}
+              style={{ transitionDelay: isOpen ? delay : "0ms" }}
+              aria-current={Active ? "page" : undefined}
+            >
+              <div className="icon-wrap" aria-hidden>
+                <item.Icon size={18} />
+              </div>
+
+              <span
+                className="label"
+                aria-hidden
+                style={{ transitionDelay: isOpen ? `${idx * 80 + 80}ms` : "0ms" }}
+              >
+                {t(item.labelKey)}
+              </span>
+            </button>
+          );
+        })}
       </nav>
-    </div>
+    </aside>
   );
-};
-
-export default Sidebar;
+}

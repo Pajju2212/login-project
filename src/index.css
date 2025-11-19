@@ -1,6 +1,21 @@
 /* ==============================
    1. GLOBAL RESETS
    ============================== */
+
+/* src/index.css — add this at top */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent body scroll when using h-screen layout */
+body {
+  overflow: hidden;
+}
+
 :root {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f9fa;
@@ -20,130 +35,23 @@ body {
 }
 
 /* ==============================
-   2. SIDEBAR (ANIMATED)
-   ============================== */
-.sidebar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-  border-right: 1px solid #e0e0e0;
-  z-index: 1000;
-  /* ANIMATION LOGIC */
-  width: 80px; /* Default Collapsed Width */
-  transition: width 0.3s ease-in-out;
-  overflow: hidden; /* Hide text when collapsed */
-}
-
-/* Class added when sidebar is open */
-.sidebar-container.expanded {
-  width: 240px;
-  align-items: flex-mid; /* Align items left when expanded */
-}
-
-
-.sidebar-logo {
-  margin-bottom: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  height: 40px;
-  align-items: center;
-}
-
-.logo-circle {
-  min-width: 12px; /* Keeps circle round when collapsed */
-  height: 12px;
-  border: 2px solid #007bff;
-  border-radius: 50%;
-}
-
-.sidebar-nav {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-.nav-item {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0 15px; /* Padding for expanded view */
-  width: 100%;
-  color: #888;
-}
-
-/* Center icons when collapsed */
-.sidebar-container:not(.expanded) .nav-item {
-  justify-content: center;
-}
-
-/* Left align when expanded */
-.sidebar-container.expanded .nav-item {
-  justify-content: flex-start;
-  margin-left: 10px;
-}
-
-.nav-item.active {
-  color: #000; /* Active Icon Color */
-}
-
-/* The Yellow Box indicator */
-.nav-item.active .icon-box {
-  background-color: #FFD700;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.icon-box {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  min-width: 50px; /* Prevents squishing */
-}
-
-/* Text Label (Hidden by default) */
-.nav-label {
-  margin-left: 15px;
-  font-weight: 600;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.2s;
-  display: none; /* Completely hide to prevent layout shifts */
-}
-
-.sidebar-container.expanded .nav-label {
-  display: block;
-  opacity: 1;
-}
-
-/* ==============================
    3. MAIN LAYOUT
    ============================== */
 .main-wrapper {
-  /* Margin matches sidebar width + animation */
-  margin-left: 80px; 
-  transition: margin-left 0.3s ease-in-out;
-  width: calc(100% - 80px);
+  /* Match collapsed sidebar width */
+  margin-left: 64px;
+  transition: margin-left 260ms cubic-bezier(.2,.9,.2,1);
+  width: calc(100% - 64px);
   display: flex;
   flex-direction: column;
 }
 
 .main-wrapper.expanded {
-  margin-left: 240px;
-  width: calc(100% - 240px);
+  /* Match expanded sidebar width */
+  margin-left: 200px;
+  width: calc(100% - 200px);
 }
+
 
 .top-header {
   height: 70px;
@@ -351,6 +259,13 @@ body {
   font-size: 14px;
 }
 .pay-pill b { color: #009ef7; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* ==============================
    DARK MODE STYLES

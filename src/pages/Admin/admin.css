@@ -1,0 +1,109 @@
+/* src/pages/Admin/admin.css */
+
+/* Page container */
+.admin-page {
+  padding: 28px 48px;
+  min-height: calc(100vh - 70px); /* leave space for header */
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Title + underline */
+.admin-page .ant-typography {
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  font-size: 28px;
+}
+.admin-page .separator {
+  height: 3px;
+  background: linear-gradient(90deg,#0ea5e9,#0078ff);
+  margin: 8px 0 22px 0;
+  border-radius: 2px;
+}
+
+/* Actions row (selected + search + button) */
+.admin-page .admin-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+/* left text */
+.admin-page .admin-actions .selected {
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+/* search wrapper on right */
+.admin-page .search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* rounded search input */
+.admin-page .search-input {
+  width: 520px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(3,102,214,0.04);
+}
+
+/* more button style (blue rounded square) */
+.admin-page .more-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg,#0ea5e9,#0078ff);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(3,102,214,0.12);
+}
+
+/* Ant Design table tweaks */
+.admin-page .admin-table .ant-table {
+  background: transparent;
+}
+
+/* Row height and spacing */
+.admin-page .admin-table .ant-table-tbody > tr > td {
+  padding: 16px 12px;
+  vertical-align: middle;
+}
+
+/* column header style */
+.admin-page .admin-table .ant-table-thead th {
+  font-weight: 600;
+  background: transparent;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px;
+}
+
+/* icons coloring and spacing inside cells */
+.admin-page .admin-table .anticon {
+  color: #333;
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+/* make file name truncate nicely */
+.admin-page .truncate {
+  max-width: 320px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* status icon spacing */
+.admin-page .ant-space .anticon + span {
+  margin-left: 6px;
+}
+
+/* small responsive tweaks */
+@media (max-width: 1200px) {
+  .admin-page .search-input { width: 360px; }
+}

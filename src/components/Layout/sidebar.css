@@ -1,0 +1,236 @@
+/* src/components/Layout/sidebar.css
+   Updated so icon badges peek out of the floating pill and remain visible.
+*/
+
+.kyos-sidebar {
+  box-sizing: border-box;
+  position: fixed;
+  left: 16px;
+  top: 24px;
+  bottom: 24px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 12px;           /* slightly more padding for pill */
+  background: #ffffff;
+  border-radius: 18px;          /* larger radius for pill look */
+  transition: width 260ms cubic-bezier(.2,.9,.2,1), transform 260ms ease, box-shadow 260ms;
+  width: 64px;                  /* collapsed width */
+  overflow: visible;            /* IMPORTANT: allow icon badges to overflow left */
+  box-shadow: 0 12px 30px rgba(2,6,23,0.06);
+}
+
+/* expanded state */
+.kyos-sidebar.open {
+  width: 270px;
+  left: 16px;
+}
+
+/* hamburger top */
+.sidebar-top { width: 100%; display:flex; justify-content:flex-start; padding:6px 4px 12px; }
+.hamburger { background: transparent; border: none; cursor: pointer; padding: 8px; border-radius: 8px; }
+
+/* nav area */
+.sidebar-nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start; /* left align so badges line up */
+  padding: 4px;
+}
+
+/* nav item */
+.nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: transparent;
+  color: #0f172a;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background 180ms, transform 200ms, box-shadow 200ms;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* icon badge */
+.nav-item .icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg,#0ea5e9,#0078ff);
+  color: white;
+  box-shadow: 0 12px 26px rgba(3,102,214,0.18);
+  flex-shrink: 0;
+  transform-origin: left center;
+  transition: transform 240ms cubic-bezier(.2,.9,.2,1), left 240ms, opacity 200ms;
+  position: relative;
+  z-index: 1005;
+}
+
+/* When collapsed: badge should peek left outside the pill */
+.kyos-sidebar.collapsed .nav-item {
+  padding-left: 6px;
+  justify-content: flex-start;
+}
+.kyos-sidebar.collapsed .nav-item .icon-wrap {
+  transform: translateX(-14px); /* pull badges out to the left so they are visible */
+  box-shadow: 0 12px 28px rgba(3,102,214,0.22);
+}
+
+/* Ensure label hidden on collapsed but still accessible */
+.nav-item .label {
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms ease, transform 200ms ease;
+  color: #0f172a;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+/* hide text visually when collapsed (but keep accessible) */
+.kyos-sidebar.collapsed .nav-item .label {
+  opacity: 0;
+  transform: translateX(-6px);
+  pointer-events: none;
+  height: 0; /* collapses the label visually */
+}
+
+/* open: show labels and left-align */
+.kyos-sidebar.open .nav-item {
+  justify-content: flex-start;
+  padding-left: 12px;
+}
+.kyos-sidebar.open .nav-item .label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* active state */
+.nav-item.active {
+  background: linear-gradient(90deg, rgba(3,102,214,0.06), rgba(3,102,214,0.03));
+}
+.nav-item.active .icon-wrap {
+  box-shadow: 0 14px 30px rgba(3,102,214,0.22);
+}
+
+/* responsive smaller screens */
+@media (max-width: 900px) {
+  .kyos-sidebar { left: 12px; top: 12px; bottom: 12px; width: 64px; }
+  .kyos-sidebar.open { width: 240px; }
+}
+/* 1) Ensure icon returns to neutral position when sidebar is open */
+.kyos-sidebar.open .nav-item .icon-wrap {
+  transform: translateX(0) !important;
+  margin-left: 4px; /* small consistent inset when open */
+}
+
+/* 2) Make the active label background look like the design (rounded pill behind icon+label) */
+.nav-item.active {
+  background: linear-gradient(90deg, rgba(3,102,214,0.06), rgba(3,102,214,0.03));
+  box-shadow: none;
+  padding-left: 10px;    /* ensure spacing from left edge */
+  padding-right: 10px;
+  align-items: center;   /* vertically center label with icon */
+}
+
+/* create subtle rounded container behind label+icon for the active row */
+.nav-item.active .label {
+  background: rgba(3,102,214,0.06);
+  padding: 10px 14px;
+  border-radius: 14px;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+/* 3) Slight vertical nudge for icon to visually center with label (if needed) */
+.nav-item .icon-wrap > svg {
+  transform: translateY(0.5px); /* tiny nudge for pixel-perfect centering */
+}
+
+/* === Force content to shift when sidebar is open (fix overlapping) === */
+
+/* When the floating sidebar is open, ensure the whole main-wrapper shifts right */
+.kyos-sidebar.open ~ .main-wrapper,
+.kyos-sidebar.open + .main-wrapper {
+  margin-left: 200px !important; /* match the sidebar.open width */
+  width: calc(100% - 200px) !important;
+  transition: margin-left 260ms cubic-bezier(.2,.9,.2,1) !important;
+  z-index: 1 !important; /* keep main-wrapper under the floating sidebar */
+}
+
+/* Ensure content inside main-wrapper doesn't use absolute positioning at left:0 */
+.main-wrapper *[style*="left:0px"],
+.main-wrapper .absolute-left,
+.main-wrapper .fixed-left {
+  left: auto !important;
+}
+
+/* Extra: push the header/content padding to keep text from hugging the sidebar */
+.main-wrapper .content-area,
+.main-wrapper .top-header,
+.main-wrapper .content-area > * {
+  padding-left: 28px;
+}
+
+/* Safety for cases where expanded class is used instead of sibling selector */
+.main-wrapper.expanded {
+  margin-left: 200px !important;
+  width: calc(100% - 200px) !important;
+}
+/* ======== Safety & polish: prevent sidebar / labels from colliding with content ======== */
+
+/* 1) Ensure the floating sidebar visually sits above page content,
+      but does not push elements into overlap (main-wrapper already shifts). */
+.kyos-sidebar {
+  z-index: 1100; /* sit above content visually */
+  will-change: transform;
+}
+
+/* 2) Ensure main content is always below the sidebar visually and has consistent padding */
+.main-wrapper {
+  position: relative;
+  z-index: 1;
+  padding-left: 24px; /* so content doesn't hug the sidebar edge visually */
+}
+
+/* 3) Prevent label backgrounds or active pills from overflowing into the page.
+      Ensures labels truncate instead of spilling over. */
+.kyos-sidebar .nav-item .label {
+  display: inline-block;
+  max-width: calc(200px - 64px); /* available label width when sidebar open */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 4) Limit the active label pill so it doesn't extend outside the sidebar width */
+.kyos-sidebar .nav-item.active .label {
+  max-width: calc(200px - 80px);
+  box-sizing: border-box;
+}
+
+/* 5) If any nested element uses large negative margins, block visual overflow */
+.main-wrapper, .main-wrapper * {
+  overflow-wrap: anywhere;
+}
+
+/* 6) Optional: hide any visually overflowing shadows that appear to intrude */
+.kyos-sidebar .nav-item .icon-wrap,
+.kyos-sidebar .nav-item .label {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
