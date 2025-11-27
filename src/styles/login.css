@@ -1,0 +1,108 @@
+.login-page {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* LEFT SIDE IMAGE */
+.left {
+    flex: 50;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left .logo-container {
+    width: 380px;
+    aspect-ratio: 2.4;
+}
+
+.left .logo-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* RIGHT SIDE */
+.right {
+    flex: 50;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LANGUAGE BUTTON */
+.lang-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+
+    padding: 12px 13px;
+    font-family: SF Pro;
+    font-size: 24px;
+    font-weight: 600;
+
+    border-radius: 12px;
+    border: 1px solid rgba(127, 127, 127, 0.5);
+    background: #FFE500;
+}
+
+/* FORM */
+.login-card {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.login-card h1 {
+    font-size: 48px;
+    font-weight: 600;
+    font-family: SF Pro;
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+.input-field {
+    width: 100%;
+    padding: 17px 29px;
+    border-radius: 14px;
+    border: 1px solid #D1D1D1;
+    background: #fff;
+    font-size: 20px;
+    font-family: SF Pro;
+}
+
+.input-field::placeholder {
+    color: #bebebe;
+}
+
+/* REMEMBER + FORGOT */
+.row-remember {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: SF Pro;
+    align-items: center;
+}
+
+/* BUTTON */
+.sign-btn {
+    width: 100%;
+    height: 64px;
+    border-radius: 14px;
+    border: 1px solid #D1D1D1;
+    background: #007AFF;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: SF Pro;
+    margin-top: 15px;
+}
