@@ -1,0 +1,26 @@
+.notif-panel {
+  width: 380px;
+  height: 100vh;
+  background: #ffffff;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 25px;
+  box-shadow: -5px 0px 25px rgba(0,0,0,0.1);
+}
+
+.notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear {
+  color: #007aff;
+  cursor: pointer;
+}
+
+.notif-body {
+  margin-top: 20px;
+  color: gray;
+}

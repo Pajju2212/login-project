@@ -1,0 +1,19 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GLOBAL FONT */
+body {
+  font-family: "SF Pro", "Noto Sans KR", Arial, sans-serif !important;
+  background: #f8f8f8;
+}
+
+/* LAYOUT WRAPPER */
+.dashboard-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}

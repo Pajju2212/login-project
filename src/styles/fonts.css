@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "SF Pro";
+  src: url("../assets/fonts/SF-Pro-Display-Regular.otf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: url("../assets/fonts/SF-Pro-Display-Semibold.otf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("../assets/fonts/SF-Pro.ttf");
+  font-weight: 400;
+}
+
+body {
+  font-family: "SF Pro", "Noto Sans KR", Arial, sans-serif;
+}
+
+body {
+  font-family: "SF Pro", "Noto Sans KR", Arial, sans-serif;
+}

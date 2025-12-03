@@ -1,0 +1,20 @@
+.filter-row {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.f-btn {
+  background: white;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.f-btn.active {
+  background: #007aff;
+  color: white;
+  border-color: #007aff;
+}
