@@ -1,27 +1,61 @@
-.sidebar {
+.side-root {
   width: 90px;
-  background: white;
+  background: #ffffff;
+  border-right: 1px solid #ececec;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
-  border-right: 1px solid #ececec;
+}
+
+/* top area with hamburger */
+.side-logo-area {
+  width: 100%;
+  padding: 20px 0 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.hamburger {
+  width: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger span {
+  height: 3px;
+  background: #222;
+  border-radius: 999px;
+}
+
+/* menu icons */
+.side-menu {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .side-item {
   width: 60px;
   height: 60px;
-  background: #fafafa;
-  border-radius: 14px;
-  margin-bottom: 22px;
+  border-radius: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 26px;
+  background: #fafafa;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.side-item:hover {
+  background: #f0f0f0;
 }
 
 .side-item.active {
-  background: #007aff;
-  color: white;
+  background: #ffd800; /* yellow like figma */
+}
+
+.side-icon {
+  font-size: 26px;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./dashboard.css";
+import "./DashboardPage.css";
 
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
@@ -8,27 +8,30 @@ import FiltersRow from "./components/FiltersRow";
 import NotificationPanel from "./components/NotificationPanel";
 
 export default function DashboardPage() {
-  const [open, setOpen] = useState(false);
+  const [showNotif, setShowNotif] = useState(false);
 
   return (
-    <div className="dash-container">
+    <div className="dash-root">
       <Sidebar />
 
       <div className="dash-main">
-        <Topbar toggleNotif={() => setOpen(!open)} />
+        <Topbar onBellClick={() => setShowNotif(!showNotif)} />
 
-        <h1 className="dash-title">Dashboard</h1>
+        <div className="dash-inner">
+          <h1 className="dash-title">Dashboard</h1>
 
-        <SummaryCards />
-        <FiltersRow />
+          <SummaryCards />
 
-        <div className="row">
-          <div className="panel-box"></div>
-          <div className="panel-box"></div>
+          <FiltersRow />
+
+          <div className="dash-bottom-row">
+            <div className="dash-large-card" />
+            <div className="dash-large-card" />
+          </div>
         </div>
       </div>
 
-      {open && <NotificationPanel />}
+      {showNotif && <NotificationPanel />}
     </div>
   );
 }

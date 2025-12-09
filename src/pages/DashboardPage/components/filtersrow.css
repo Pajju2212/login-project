@@ -1,19 +1,19 @@
-.filter-row {
-  margin-top: 30px;
+.filters-root {
   display: flex;
-  gap: 15px;
+  gap: 12px;
+  margin-top: 12px;
 }
 
-.f-btn {
-  background: white;
-  padding: 14px 20px;
-  border-radius: 14px;
-  border: 1px solid #ddd;
+.filt-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid #dedede;
+  background: #ffffff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
 }
 
-.f-btn.active {
+.filt-btn.active {
   background: #007aff;
   color: white;
   border-color: #007aff;

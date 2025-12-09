@@ -3,24 +3,24 @@ import "./summarycards.css";
 
 export default function SummaryCards() {
   return (
-    <div className="summary-row">
-      <div className="card">
-        <p className="label">Total Revenue</p>
-        <h2 className="value">₹ 4,20,000</h2>
+    <div className="sum-row">
+      <div className="sum-card">
+        <div className="sum-label">Total Revenue</div>
+        <div className="sum-value">₹ 4,20,000</div>
       </div>
 
-      <div className="card">
-        <p className="label">Reward Points</p>
-        <h2 className="value">1,800</h2>
+      <div className="sum-card">
+        <div className="sum-label">Reward Points</div>
+        <div className="sum-value">1,800</div>
       </div>
 
-      <div className="card">
-        <p className="label">Referrals</p>
-        <h2 className="value">67</h2>
+      <div className="sum-card">
+        <div className="sum-label">Referrals</div>
+        <div className="sum-value">67</div>
       </div>
 
-      <div className="card add">
-        <span className="plus">+</span>
+      <div className="sum-card add-card">
+        <span className="add-plus">+</span>
       </div>
     </div>
   );

@@ -1,12 +1,13 @@
-.notif-panel {
-  width: 380px;
-  height: 100vh;
-  background: #ffffff;
+.notif-root {
   position: fixed;
   right: 0;
   top: 0;
-  padding: 25px;
-  box-shadow: -5px 0px 25px rgba(0,0,0,0.1);
+  width: 360px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);
+  padding: 20px 24px;
+  box-sizing: border-box;
 }
 
 .notif-header {
@@ -15,12 +16,17 @@
   align-items: center;
 }
 
-.clear {
+.notif-title {
+  font-weight: 600;
+}
+
+.notif-clear {
+  font-size: 14px;
   color: #007aff;
   cursor: pointer;
 }
 
-.notif-body {
-  margin-top: 20px;
-  color: gray;
+.notif-content {
+  margin-top: 16px;
+  color: #777;
 }

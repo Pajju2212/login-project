@@ -3,14 +3,14 @@ import "./NotificationPanel.css";
 
 export default function NotificationPanel() {
   return (
-    <div className="notif-panel">
+    <div className="notif-root">
       <div className="notif-header">
-        <h3>Notifications</h3>
-        <span className="clear">Clear All</span>
+        <span className="notif-title">Notifications</span>
+        <span className="notif-clear">Clear all</span>
       </div>
 
-      <div className="notif-body">
-        <p>No notifications right now.</p>
+      <div className="notif-content">
+        <p>No new alerts</p>
       </div>
     </div>
   );

@@ -1,36 +1,36 @@
-.summary-row {
+.sum-row {
   display: flex;
   gap: 20px;
-  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
-.card {
+.sum-card {
   flex: 1;
-  background: white;
+  background: #ffffff;
   border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 0 30px rgba(200, 200, 200, 0.4);
+  padding: 20px 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
 }
 
-.label {
-  font-size: 16px;
-  color: gray;
+.sum-label {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 6px;
 }
 
-.value {
-  font-size: 28px;
+.sum-value {
+  font-size: 24px;
   font-weight: 600;
-  margin-top: 10px;
 }
 
-.add {
+.add-card {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.plus {
-  font-size: 40px;
+.add-plus {
+  font-size: 32px;
   color: #007aff;
-  font-weight: bold;
+  font-weight: 700;
 }
